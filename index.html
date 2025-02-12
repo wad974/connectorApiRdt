@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>etatConnectorApi</title>
+</head>
+
+
+<body>
+  <div class="container">
+    <header>
+      <figure>
+        <img src="https://sica-lait.re/wp-content/uploads/2022/06/logo.png" alt="sicalait">
+      </figure>
+      <nav>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a class="button" href="commandes">Tous les Commandes</a></li>
+          <li><a class="buttonFiltres" href="filtres">Filtrer par</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!--MAIN-->
+    <main>
+
+      <h3>
+        <strong>N° DOSSIER / CDE ${index + 1} :</strong> ${commande.numDossierClient}
+        <p><strong>Marchandise</strong> : ${commande.marchandises}</p>
+      </h3>
+      <div class='bloc'>
+        <div class="bloc-gauche">
+          <p><strong>Compagnie Maritime :</strong> ${commande.idArmateur}</p>
+          <p><strong>Numéros Dossier Rdt :</strong> ${commande.numDossierRdt}</p>
+          <p><strong>Sea Way Bill ( BL ) :</strong> ${commande.bl}</p>
+          <p><strong>Référence Groupage:</strong> ${commande.refGroupage}</p>
+          <p><strong>Groupage: </strong>${commande.groupage}</p>
+        </div>
+        <div class="bloc-droite">
+          <p><strong>Date Commande (ETD) :</strong> ${commande.dateCommande}</p>
+          <p><strong>Date Départ (ETA) :</strong> ${commande.dateDepart}</p>
+          <p><strong>Date Arrivée (BAE) :</strong> ${commande.dateArrivee}</p>
+          <p><strong>Emballage :</strong> ${commande.emballage}</p>
+          <p><strong>Nbre Colis :</strong> ${commande.nombreColis}</p>
+        </div>
+      </div>
+      <h5>
+        Tracing : ${commande.tracing} <br>
+        <strong>Nom Navire :</strong> ${commande.navire}
+      </h5>
+
+    </main>
+
+  </div>
+
+  <script src="index.js"></script>
+  <script src="function.js"></script>
+</body>
+
+</html>

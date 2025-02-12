@@ -1,0 +1,261 @@
+@keyframes sablier {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+html, body {position: relative;}
+
+.container {
+    width: 80%;
+    height: 100vh;
+    margin: auto;
+    padding-bottom: 5em;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    padding: 0 2em;
+    border-bottom: 1px solid #F1F3F4;
+}
+
+figure {
+    width: 5vw;
+    display: flex;
+    align-items: center;
+}
+
+figure img {
+    width: 100%;
+}
+
+nav ul {
+    height: 100%;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+ul li {
+    margin-left: 2em;
+}
+
+ul li a {
+    font-size: 1.15em;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #49A7E1;
+}
+
+ul li a:hover {
+    color: #68BD26;
+}
+
+main {
+    padding-top: 2em;
+    height: 95%;
+}
+
+button {
+    border: none;
+    outline: none;
+    background-color: #F1F3F4;
+    padding: 1em 3em;
+}
+
+.divMessage,
+.divStatus {
+    text-transform: uppercase;
+    font-size: 1em;
+    padding: 1em;
+}
+
+#status,
+#message {
+    color: #49A7E1;
+}
+
+#output {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contenu {
+    box-shadow: 0px 0px 20px lightgray;
+    padding: 1em;
+    margin-top: 2em;
+}
+
+.contenu h3 {
+    color: #68BD26;
+    background-color: lightgray;
+    padding: 1em;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.contenu h5 {
+    color: #49A7E1;
+    background-color: rgba(0, 0, 0, 0.15);
+    padding: 1em;
+    font-size: 0.85em;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.bloc {
+    display: flex;
+    font-size: 1.2em;
+}
+
+.bloc .bloc-gauche {
+    border-right: 1px solid gray;
+    padding: 1em;
+    width: 70%;
+}
+
+.bloc p {
+    padding-bottom: 1em;
+}
+
+.bloc .bloc-droite {
+    padding: 1em;
+    width: 35%;
+}
+
+form {
+    width: 100%;
+    margin-top: 1em;
+}
+
+fieldset {
+    border-color: #49A7E1;
+    width: 50%;
+    margin: auto;
+    padding: 1em;
+}
+
+legend {
+    margin-left: 1em;
+    font-size: 1.15em;
+    text-transform: uppercase;
+    color: #49A7E1;
+}
+
+form p {
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+form input {
+    border: none;
+    outline: none;
+    background-color: lightgray;
+    padding: 1em;
+    font-size: 1em;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.filtres {
+    display: none;
+}
+
+.sablier {
+    text-align: center;
+    padding: 2em;
+}
+
+.anim {
+    display: inline-block;
+    animation: sablier 1s infinite;
+}
+
+.error {
+    margin: 2em;
+    padding: 2em;
+    background-color: red;
+    color: white;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+footer{
+    position: fixed;
+    right: 0;
+    bottom: 12em;
+    transform: rotate(90deg);
+    text-transform: uppercase;
+    color: gray;
+    font-weight: bold
+}
+
+@media screen and (max-width: 1440px) {
+    footer{
+        right: -3em
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .container{width: 100%;}
+    header figure{
+        width: 10vw;
+    }
+    footer{
+        right: -16.5%
+    }
+}
+
+@media screen and (max-width: 768px) {
+    
+    ul li {
+        margin-left: 1em;
+    }
+    ul li a{
+        font-size: 0.90em;
+    }
+    footer{
+        right: -22%
+    }
+}
+
+@media screen and (max-width: 320px) {
+    header{flex-direction: column;}
+    header figure{
+        width: 20vw;
+        margin-bottom: 2em;
+    }
+    nav ul{
+        flex-direction: column;
+    }
+    
+    ul li {
+        margin-left: 1em;
+    }
+    ul li a{
+        font-size: 0.90em;
+    }
+    footer{
+        right: -50%
+    }
+}

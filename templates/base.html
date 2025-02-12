@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mon site Flask{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <!--main-->
+        {% include "header.html" %}
+
+        <main>
+            {% block main %}{% endblock %}
+        </main>
+
+        <!--footer-->
+        {% include "footer.html" %}
+    </div>
+
+
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/function.js') }}"></script>
+</body>
+
+</html>

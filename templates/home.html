@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<form class="filtres">
+    <fieldset>
+        <legend>Filtrer par </legend>
+        <p>
+            <input type="text" class="numDossier" placeholder="N° DOSSIER CLIENT / RDT / GROUPAGE / BL">
+        </p>
+    </fieldset>
+    <div class="await"></div>
+    <div id="filtreOutput"></div>
+    <div id="filtreError"></div>
+</form>
+
+<div class="mainOutput">
+    <div class="await"></div>
+    <h2 class="divStatus">
+        <p id="status"></p>
+    </h2> <!-- Pour afficher les données -->
+    <h2 class="divMessage">
+        <p id="message"></p>
+    </h2> <!-- Pour afficher les données -->
+    <div id="output">
+    </div> <!-- Pour afficher les données -->
+</div>
+
+{% endblock %}
