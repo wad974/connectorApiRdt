@@ -1,4 +1,6 @@
-from fastapi import FastAPI, HTTPException, Security, Depends
+from fastapi import FastAPI, HTTPException, Security, Depends, Request
+from fastapi.templating import Jinja2Templates
+from fastapi.staticfiles import StaticFiles
 from fastapi.security.api_key import APIKeyHeader
 from fastapi.middleware.cors import CORSMiddleware
 import requests
@@ -8,6 +10,7 @@ import os
 from dotenv import load_dotenv
 from typing import Optional
 from pydantic import BaseModel
+from fastapi.responses import HTMLResponse
 
 
 # Chargement des variables d'environnement
@@ -15,6 +18,60 @@ load_dotenv()
 
 # Initialisation de l'API FastAPI
 app = FastAPI()
+
+# 📂 Dossier des templates HTML
+templates = Jinja2Templates(directory="templates")
+
+# 📂 Dossier des fichiers statiques (CSS, JS, images)
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
+#home racine
+
+#route racine
+@app.get('/')
+def home(request: Request):
+    return templates.TemplateResponse(
+        'base.html', 
+        {
+            'request' : request,
+            'name' : 'sicalait'
+        })
+
+    
+#page filtres
+@app.get('/filtres')
+async def filtre(request: Request):
+    return templates.TemplateResponse(
+        'base.html', 
+        {
+            'request' : request,
+            'name' : 'sicalait'
+        })
+
+#page tous les commandes
+@app.get('/touslescommandes')
+async def tous_les_commandes(request: Request):
+    return templates.TemplateResponse(
+        'base.html', 
+        {
+            'request' : request,
+            'name' : 'sicalait'
+        })
+
+# -----------------------------------------------------------
+# ✅ Lancer FastAPI et Flask en parallèle
+# -----------------------------------------------------------
+
+@app.get('/')
+async def home(request: Request):
+    return templates.TemplateResponse('index.html', {'request' : request, 'name' : 'sicalait'})
+
+@app.get("/items/{id}", response_class=HTMLResponse)
+async def read_item(request: Request, id: str):
+    return templates.TemplateResponse(
+        request=request, name="item.html", context={"id": id}
+    )
+
 
 # Configuration CORS pour autoriser les requêtes depuis le front-end
 app.add_middleware(
@@ -51,7 +108,7 @@ headers = {"key": MY_RDT_API_KEY}
 # ✅ ROUTE : Récupération des commandes
 # -----------------------------------------------------------
 @app.get("/commandes/")
-async def recupere_commandes():
+def recupere_commandes():
     """
     Récupère la liste des commandes depuis l'API externe MyRDT.
     """

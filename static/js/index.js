@@ -22,9 +22,12 @@ let bouton = document.querySelector('.button');
 bouton.addEventListener('click', async (event) => {
     event.preventDefault();
 
-    if (filtres.style.display = 'block') {
-        filtres.style.display = 'none'
-        mainOutput.style.display = 'block'
+    if (filtres)
+    {
+        if (filtres.style.display = 'block') {
+            filtres.style.display = 'none'
+            mainOutput.style.display = 'block'
+        }
     }
 
     // message de chargement
@@ -66,7 +69,10 @@ let filtres = document.querySelector('.filtres')
 let filtreOutput = document.querySelector('#filtreOutput')
 let filtreError = document.querySelector('#filtreError')
 
-filtres.style.display = 'none'
+
+if (filtres) {
+    filtres.style.display = 'none'
+}
 
 boutonFiltre.addEventListener('click', (event) => {
     event.preventDefault();
