@@ -12,7 +12,7 @@ Requests : Pour interagir avec l'API MyRDT.
 
 Pydantic : Pour la validation des données.
 
-Odoo ORM : Pour l'intégration avec Odoo.
+Odoo ORM : Pour l'intégration avec Odoo (Méthode à confirmer avec ARKEUP).
 
 Dotenv : Pour gérer les variables d'environnement.
 
@@ -20,8 +20,8 @@ Dotenv : Pour gérer les variables d'environnement.
 
 1️⃣ Cloner le dépôt
 
-git clone https://github.com/votre-repo.git
-cd votre-repo
+git clone https://github.com/wad974/connectorApiRdt
+cd 
 
 2️⃣ Créer un environnement virtuel
 
@@ -57,7 +57,7 @@ GET
 
 Récupérer les commandes MyRDT
 
-POST
+GET
 
 /documents/
 
@@ -115,6 +115,8 @@ Contrôle des erreurs avec FastAPI.
 Restriction des accès via CORS.
 
 🛠 Améliorations possibles
+
+=>  Attente connexion Odoo pour écriture
 
 Ajouter un cache pour éviter les appels répétés à MyRDT.
 
